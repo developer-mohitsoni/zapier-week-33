@@ -3,7 +3,8 @@
 export const Input = ({label, placeholder, onChange, type='text'}:{
   label: string;
   placeholder: string;
-  onChange: (value: string) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onChange: (e: any) => void;
   type?: "text" | "email" | "password";
 })=>{
   return (
@@ -11,7 +12,7 @@ export const Input = ({label, placeholder, onChange, type='text'}:{
       <div className="text-sm pb-1 pt-2">
         * <label>{label}</label>
       </div>
-      <input className="border rounded px-4 py-2 w-full border-black" type={type} placeholder={placeholder} onChange={(e) => onChange(e.target.value)} />
+      <input className="border rounded px-4 py-2 w-full border-black" type={type} placeholder={placeholder} onChange={(e) => onChange(onChange)} />
     </div>
   )
 }
