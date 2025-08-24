@@ -25,7 +25,6 @@ export default function(){
               <CheckFeature label={"14-day trial of premium features & apps"}/>
           </div>
           <div className="flex-1 pt-6 pb-6 mt-12 px-4 border rounded">
-            <div></div>
             <Input label={"Name"} onChange={e => {}} type="text" placeholder="Your Name"></Input>
             <Input label={"Email"} onChange={e => {}} type="email" placeholder="Your email"></Input>
             <Input label={"Password"} onChange={e => {}} type="password" placeholder="Password"></Input>
