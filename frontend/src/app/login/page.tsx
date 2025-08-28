@@ -45,7 +45,7 @@ export default function(){
                 })
                 localStorage.setItem("token", res.data.token);
                 router.push("/dashboard")
-              }} size="big">Get started free</PrimaryButton>
+              }} size="big">Login</PrimaryButton>
             </div>
           </div>
         </div>
