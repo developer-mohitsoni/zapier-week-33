@@ -60,6 +60,8 @@ function useZaps(){
 // eslint-disable-next-line import/no-anonymous-default-export, react/display-name
 export default function(){
 
+  const router = useRouter();
+
   const { loading, zaps } = useZaps();
   return (
     <div>
@@ -70,7 +72,9 @@ export default function(){
             <div className="text-2xl font-bold">
               My Zaps
             </div>
-            <DarkButton onClick={()=>{}}>{
+            <DarkButton onClick={()=>{
+              router.push("/zap/create")
+            }}>{
               <div className="flex gap-2 justify-center items-center">
                 <span>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
