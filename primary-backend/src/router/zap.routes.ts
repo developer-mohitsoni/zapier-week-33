@@ -23,15 +23,17 @@ router.post("/", authMiddleware, async(req, res)=>{
         triggerId: parsedData.data.availableTriggerId,
         Trigger:{
           create:{
-            triggerId: parsedData.data.availableTriggerId
+            triggerId: parsedData.data.availableTriggerId,
+            metadata: parsedData.data.triggerMetadata
           }
         },
         actions:{ 
           create: parsedData.data.actions.map((x, index) => ({
             actionId: x.availableActionId,
-            sortingOrder: index
+            sortingOrder: index,
+            metadata: x.actionMetadata
           }))
-        } 
+        },
       }
     })
 
