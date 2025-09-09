@@ -21,6 +21,7 @@ interface Zap{
     type:{
       id: string,
       name: string
+      image: string
     }
   }[],
   Trigger:{
@@ -29,7 +30,8 @@ interface Zap{
     triggerId: string,
     type:{
       id: string,
-      name: string
+      name: string,
+      image: string
     }
   }
 }
@@ -98,21 +100,23 @@ function ZapTable({zaps}: {zaps: Zap[]}){
     <div className="p-8 max-w-screen-lg w-full">
       <div className="flex">
         <div className="flex-1">Name</div>
-        <div className="flex-1">Last Edit</div>
-        <div className="flex-1">Running</div>
+        <div className="flex-1">ID</div>
+        <div className="flex-1">Created at</div>
+        <div className="flex-1">Webhook URL</div>
         <div className="flex-1">Go</div>
       </div>
       {zaps.map(z => (
         <div className="flex border-b border-t border-gray-600 py-4" key={z.id}>
-          <div className="flex-1">{z.Trigger.type.name} {z.actions.map(x => x.type.name + " ")}</div>
+          <div className="flex-1 flex"><img src={z.Trigger.type.image} className="w-[30px] h-[30px]" width={30}/>{z.actions.map(x => <img src={x.type.image} className="w-[30px] h-[30px]" />)}</div>
           <div className="flex-1">{z.id}</div>
           <div className="flex-1">Aug 28, 2025</div>
+          <div className="flex-1">{`${process.env.NEXT_PUBLIC_HOOKS_URL}/hooks/catch/1/${z.id}`}</div>
           <div className="flex-1">
             <LinkButton onClick={() => {
               router.push("/zap/" + z.id)
             }}>Go</LinkButton>
           </div>
-        </div>
+        </div>  
       ))}
   </div>
   )
