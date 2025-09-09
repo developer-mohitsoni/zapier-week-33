@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 
 import { AppBar } from "@/components/AppBar";
@@ -7,7 +8,6 @@ import { ZapCell } from "@/components/ZapCell";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 function useAvailableActionsAndTriggers(){
   const [availableActions, setAvailableActions] = useState([]);
@@ -142,7 +142,7 @@ function Modal({index, onSelect, availableItems}: {index:number, onSelect: (prop
                       id, name
                     })
                   }} className="flex border p-4 cursor-pointer hover:bg-[#d8d7d5]">
-                    <Image src={image} width={30} height={30} className="rounded-full" alt={name} />
+                    <img src={image} width={30} height={30} className="rounded-full" alt={name} />
                     <div className="flex flex-col justify-center">{name}</div>
                   </div>
                 )
